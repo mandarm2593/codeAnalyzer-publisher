@@ -1,0 +1,39 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Sun Mar 12 19:00:07 2017
+     Path: "C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep - Copy\StrongComp"
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      18
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 StrComp.h   namespace                             strong      51     123      16
+                 StrComp.h       class                              Graph      53      19      15
+                 StrComp.h    function                   setFileGraphPath      65       2       1
+                 StrComp.h    function                              Graph      74       2       1
+                 StrComp.h    function                            addEdge      78       3       1
+                 StrComp.h    function                       setgraphsize      83       4       1
+                 StrComp.h    function                            SCCUtil      92      38       5
+                 StrComp.h    function           displayStrongComponentDB     132      19       3
+                 StrComp.h    function                                SCC     153      20       2
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+               StrComp.cpp    function                               main      22      13       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+
+
+    searched     6 dirs
+   processed     2 files

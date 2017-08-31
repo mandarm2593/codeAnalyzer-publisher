@@ -1,0 +1,123 @@
+
+  <NoSqlDb>
+    <key>
+      FileMgr.cpp
+    </key>
+    <Name>
+      FileMgr.cpp
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.cpp
+      FileMgr.h
+      FileSystem.h
+      IFileMgr.h
+    </Children>
+    <key>
+      FileMgr.h
+    </key>
+    <Name>
+      FileMgr.h
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.h
+      FileSystem.h
+      IFileMgr.h
+    </Children>
+    <key>
+      IFileMgr.h
+    </key>
+    <Name>
+      IFileMgr.h
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.h
+      IFileMgr.h
+    </Children>
+    <key>
+      ./FileMgr.cpp
+    </key>
+    <Name>
+      ./FileMgr.cpp
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.cpp
+      FileMgr.h
+      FileSystem.h
+      IFileMgr.h
+    </Children>
+    <key>
+      ./IFileMgr.h
+    </key>
+    <Name>
+      ./IFileMgr.h
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.h
+      IFileMgr.h
+    </Children>
+    <key>
+      ./FileMgr.h
+    </key>
+    <Name>
+      ./FileMgr.h
+    </Name>
+    <Category>
+      
+    </Category>
+    <Data>
+      
+    </Data>
+    <Time Date>
+      
+    </Time Date>
+    <Children>
+      FileMgr.h
+      FileSystem.h
+      IFileMgr.h
+    </Children>
+  </NoSqlDb>

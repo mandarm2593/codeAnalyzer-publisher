@@ -1,0 +1,6 @@
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\bin\Release\TestFiles-CS.exe.config
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\bin\Release\TestFiles-CS.exe
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\bin\Release\TestFiles-CS.pdb
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\obj\Release\TestFiles-CS.exe
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\obj\Release\TestFiles-CS.pdb
+C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep\TestFiles-CS\obj\Release\TestFiles-CS.csprojResolveAssemblyReference.cache

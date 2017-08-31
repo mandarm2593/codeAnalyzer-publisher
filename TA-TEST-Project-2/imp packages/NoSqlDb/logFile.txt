@@ -1,0 +1,57 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Sun Mar 12 18:59:28 2017
+     Path: "C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep - Copy\NoSqlDb"
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      17
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 NoSqlDb.h       class                            Element      41      18       5
+              public data: Property < Name > name ; 
+              public data: Property < Category > category ; 
+              public data: Property < TimeDate > timeDate ; 
+              public data: Property < Data > data ; 
+              public data: std :: vector < Children > child ; 
+                 NoSqlDb.h    function                               show      63      21       2
+                 NoSqlDb.h    function                               save     126       6       1
+                 NoSqlDb.h    function                             update     145       8       1
+                 NoSqlDb.h       class                            NoSqlDb      91      19       7
+                 NoSqlDb.h    function                               keys     113      10       2
+                 NoSqlDb.h    function                                del     135       5       1
+                 NoSqlDb.h    function                              value     156       5       1
+                 NoSqlDb.h    function                              count     163       3       1
+                 NoSqlDb.h    function                           addChild     179       6       1
+                 NoSqlDb.h    function                         updatemeta     169       6       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+               NoSqlDb.cpp    function                               main      28      42       3
+               NoSqlDb.cpp    function                         updatemeta      64       1       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: NoSqlDb.h : 47 - class Element
+                Property < Name > name ; 
+              public data: NoSqlDb.h : 48 - class Element
+                Property < Category > category ; 
+              public data: NoSqlDb.h : 49 - class Element
+                Property < TimeDate > timeDate ; 
+              public data: NoSqlDb.h : 51 - class Element
+                Property < Data > data ; 
+              public data: NoSqlDb.h : 53 - class Element
+                std :: vector < Children > child ; 
+
+
+    searched    11 dirs
+   processed     2 files

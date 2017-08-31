@@ -1,0 +1,206 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> NoSqlDb.h</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\NoSqlDb.h.htm"><label>NoSqlDb.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+#pragma once
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  NoSqlDb.h defines two classes that are used in populating and calling important function in our database//
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* Package operation:
+------------------
+1. Defines two classes of template type namely : Element and NoSqlDb.
+2. Element class is used to create individual elements of the database.
+3. NoSqlDb class is used to add these individual elements to an unordered map using a save function.
+4. These two classes together foem our data base.
+
+Public Interfaces
+-show()
+-keys()
+-save()
+-delete()
+-value()
+-updatemeta()
+
+*/
+#include &lt;unordered_map&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+#include &lt;vector&gt;
+#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+#include "../CppProperties/CppProperties.h"
+#include&lt;ctime&gt;
+
+
+//#include "../StrHelper.h"
+using StrData = std::string;
+/////////////////////////////////////////////////////////////////////
+// Element class represents a data record in our NoSql database
+// - in our NoSql database that is just the value in a key/value pair
+
+template&lt;typename Data&gt;
+class Element
+<br> <button onclick = "hidebutton('408483')">+</button> { <Span id="408483"  > 
+public:
+	using Name = std::string;
+	using Category = std::string;
+	using Description = std::string;
+	using TimeDate = std::string;
+	using Children = std::string;
+	Property&lt;Name&gt; name;            // metadata
+	Property&lt;Category&gt; category;    // metadata
+	Property&lt;TimeDate&gt; timeDate;    // metadata
+
+	Property&lt;Data&gt; data;            // data
+
+	std::vector&lt;Children&gt; child;		//child data
+
+
+	std::string show();
+<br></Span>} ;
+
+
+template&lt;typename Data&gt;
+std::string Element&lt;Data&gt;::show()
+<br> <button onclick = "hidebutton('408933')">+</button> { <Span id="408933"  > 
+
+
+	std::ostringstream out;
+	out.setf(std::ios::adjustfield, std::ios::left);
+	out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "name" &lt;&lt; " : " &lt;&lt; name;
+	out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "category" &lt;&lt; " : " &lt;&lt; category;
+
+	out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "data" &lt;&lt; " : " &lt;&lt; data;
+	for (unsigned int i = 0; i &lt; child.size(); ++i)
+	<br> <button onclick = "hidebutton('409244')">+</button> { <Span id="409244"  > 
+		out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "child" &lt;&lt; i + 1 &lt;&lt; " : " &lt;&lt; child.at(i);//showing children
+
+	<br></Span>} 
+	out &lt;&lt; "\n    " &lt;&lt; std::setw(8) &lt;&lt; "timeDate" &lt;&lt; " : " &lt;&lt; timeDate;
+
+
+
+	out &lt;&lt; "\n";
+	return out.str();
+<br></Span>} 
+
+/////////////////////////////////////////////////////////////////////
+// NoSqlDb class is a key/value pair in-memory database
+// - stores and retrieves elements
+
+template&lt;typename Data&gt;
+class NoSqlDb
+<br> <button onclick = "hidebutton('409637')">+</button> { <Span id="409637"  > 
+public:
+	using Key = std::string;
+	using Keys = std::vector&lt;Key&gt;;
+
+	Keys keys();
+	bool save(Key key, Element&lt;Data&gt; elem);
+	void del(Key key);
+	void update(Key key, Element&lt;Data&gt; &c);
+	void NoSqlDb &lt;Data&gt; ::updatemeta(Key key, std::string b, std::string c, std::vector&lt;std::string&gt; children);
+	void addChild(Key key, std::string a);//addition of child to any key value
+	//std::string NoSqlDb&lt;Data&gt;::toxml(Keys keys, NoSqlDb &lt;Data&gt; x);
+	Element&lt;Data&gt; value(Key key);
+	size_t count();
+private:
+	using Item = std::pair&lt;Key, Element&lt;Data&gt;&gt;;
+
+	std::unordered_map&lt;Key, Element&lt;Data&gt;&gt; store;
+<br></Span>} ;
+
+template&lt;typename Data&gt;
+typename NoSqlDb&lt;Data&gt;::Keys NoSqlDb&lt;Data&gt;::keys()
+<br> <button onclick = "hidebutton('410280')">+</button> { <Span id="410280"  > 
+	Keys keys;
+
+
+	for (Item item : store)
+	<br> <button onclick = "hidebutton('410317')">+</button> { <Span id="410317"  > 
+		keys.push_back(item.first);
+	<br></Span>} 
+	return keys; //returns a vector of keys
+<br></Span>} 
+
+template&lt;typename Data&gt;
+bool NoSqlDb&lt;Data&gt;::save(Key key, Element&lt;Data&gt; elem)//save functionality to store key/value pairs
+<br> <button onclick = "hidebutton('410511')">+</button> { <Span id="410511"  > 
+	if (store.find(key) != store.end())
+		return false;
+	store[key] = elem;
+	return true;
+<br></Span>} 
+
+template&lt;typename Data&gt;
+void NoSqlDb&lt;Data&gt; ::del(Key key)
+<br> <button onclick = "hidebutton('410652')">+</button> { <Span id="410652"  > 
+	store.erase(key);
+	std::cout &lt;&lt; "\"" &lt;&lt; key &lt;&lt; "\"" &lt;&lt; " deleted\n ";//deleting any value by taking its key as input
+
+<br></Span>} 
+
+
+
+template&lt;typename Data&gt;
+void NoSqlDb &lt;Data&gt; ::update(Key key, Element &lt;Data&gt; &c)
+<br> <button onclick = "hidebutton('410849')">+</button> { <Span id="410849"  > 
+	if (store.find(key) != store.end())
+		store[key] = c;
+
+	else
+		std::cout &lt;&lt; "error";
+
+<br></Span>} 
+
+template&lt;typename Data&gt;
+Element&lt;Data&gt; NoSqlDb&lt;Data&gt;::value(Key key)
+<br> <button onclick = "hidebutton('410998')">+</button> { <Span id="410998"  > 
+	if (store.find(key) != store.end())
+		return store[key];
+	return Element&lt;Data&gt;();
+<br></Span>} 
+template&lt;typename Data&gt;
+size_t NoSqlDb&lt;Data&gt;::count()
+<br> <button onclick = "hidebutton('411132')">+</button> { <Span id="411132"  > 
+	return store.size();
+<br></Span>} 
+
+template&lt;typename Data&gt;
+void NoSqlDb &lt;Data&gt; ::updatemeta(Key key, std::string b, std::string c, std::vector&lt;std::string&gt; children)
+<br> <button onclick = "hidebutton('411284')">+</button> { <Span id="411284"  > 
+	store[key].category = b;
+	store[key].data = c;
+	store[key].child = children;
+	std::cout &lt;&lt; key &lt;&lt; " metadata updated\n\n";
+<br></Span>} 
+
+
+
+template &lt;typename Data&gt;
+void NoSqlDb&lt;Data&gt;::addChild(Key key, std::string a) <br> <button onclick = "hidebutton('411483')">+</button> { <Span id="411483"  > 
+
+
+	store[key].child.push_back(a);
+	std::cout &lt;&lt; "Child added to " &lt;&lt; key;
+<br></Span>} 
+
+
+
+
+
+
+
+
+
+
+
+
+</pre> 
+</body>
+ </html>

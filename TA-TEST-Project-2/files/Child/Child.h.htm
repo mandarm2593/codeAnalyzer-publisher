@@ -1,0 +1,76 @@
+<html> 
+ <body> 
+ <pre>
+#ifndef CHILD_H
+#define CHILD_H
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;map&gt;
+
+
+int globalData = 10;
+
+namespace ChildTest {
+	
+	struct element {
+		std::string name, type;
+		int start_line, end_line;
+		std::vector&lt;element&gt; children;
+	};
+	enum Numbers { one = 1, two, three, four };
+	class Child {
+	public:
+		Child() {};
+		~Child() {};
+		void inlineMethod(int a) {
+			int i;
+			for (i = 0; i &lt; 2; i++) {
+				std::cout &lt;&lt; a;
+				if (i == 1)
+				{
+					std::cout &lt;&lt; i;
+				}
+			}
+			if (i == 1) {
+				std::cout &lt;&lt; a;
+			}
+			else
+			{
+			}
+		}
+		int method1();
+		int method3();
+		int method2()
+		{
+			std::cout &lt;&lt; "Hello OOD";
+			return 0;
+		}
+		int method4();
+	};
+	
+
+
+	static void globalFunction() {
+		std::map&lt;int, int&gt; map = { { 1,1 },{ 2,2 } };
+		while (true) {
+			{
+				std::cout &lt;&lt; "\n Global Function";
+			}
+			break;
+		}
+	}
+}
+
+static void globalFunction1() {
+	std::map&lt;int, int&gt; map = { { 1,1 },{ 2,2 } };
+	while (true) {
+		{
+			std::cout &lt;&lt; "\n Global Function";
+		}
+		break;
+	}
+}
+#endif
+
+

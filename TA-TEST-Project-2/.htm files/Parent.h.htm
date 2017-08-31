@@ -1,0 +1,57 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> Parent.h</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\Child.h.htm"><label>Child.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\Parent.h.htm"><label>Parent.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+#ifndef SCOPESTACK_H
+#define SCOPESTACK_H
+#pragma once
+
+
+#include "Child2.h"
+#include "Child.h"
+#include "Invalid.h"
+#include &lt;list&gt;
+
+
+namespace parent1
+<br> <button onclick = "hidebutton('403896')">+</button> { <Span id="403896"  > 
+	namespace parent2
+	<br> <button onclick = "hidebutton('403916')">+</button> { <Span id="403916"  > 
+		template&lt;typename T&gt;
+		class Parent <br> <button onclick = "hidebutton('403954')">+</button> { <Span id="403954"  > 
+			using namespace ChildTest;
+		public:
+			void push(const T& item);
+			T pop();
+		private:
+			data d;
+			std::list&lt;T&gt; stack;
+			Child child;
+		<br></Span>} ;
+
+
+		template&lt;class T&gt;
+		void Parent&lt;T&gt;::push(const T& item)
+		<br> <button onclick = "hidebutton('404151')">+</button> { <Span id="404151"  > 
+			stack.push_back(item);
+		<br></Span>} 
+
+		template&lt;class T&gt;
+		T Parent&lt;T&gt;::pop()
+		<br> <button onclick = "hidebutton('404221')">+</button> { <Span id="404221"  > 
+			T item = stack.back();
+			stack.pop_back();
+			globalData++;
+			return item;
+		<br></Span>} 
+	<br></Span>} 
+
+<br></Span>} 
+#endif
+
+</pre> 
+</body>
+ </html>

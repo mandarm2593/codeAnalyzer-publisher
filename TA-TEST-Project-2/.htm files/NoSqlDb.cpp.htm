@@ -1,0 +1,78 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> NoSqlDb.cpp</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\NoSqlDb.h.htm"><label>NoSqlDb.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+///////////////////////////////////////////////////////////////
+//    NoSqlDb.cpp - defines test stub for functionalities    //
+//                    implemented in NoSqlDb.h               //
+//                                                           //
+//                                                           //
+///////////////////////////////////////////////////////////////
+
+#include "NoSqlDb.h"
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include &lt;time.h&gt;
+#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include&lt;time.h&gt;
+using StrData = std::string;
+using intData = int;
+using Key = NoSqlDb&lt;StrData&gt;::Key;
+using Keys = NoSqlDb&lt;StrData&gt;::Keys;
+
+
+
+#ifdef TEST_NOSQLDB
+
+int main()
+<br> <button onclick = "hidebutton('405722')">+</button> { <Span id="405722"  > 
+	std::cout &lt;&lt; "-------------------Test Stub-------------------------";
+	NoSqlDb&lt;StrData&gt; db;
+	Element&lt;StrData&gt; el1;
+	Element&lt;StrData&gt; el2;
+
+	el1.name = "Mandar";
+	el1.category = "Grad";
+	el1.data = "CE";
+	time_t now = time(0);
+	struct tm * curtime = localtime(&now);
+	el1.timeDate = asctime(curtime);
+	el1.child.push_back("Jane");
+	el2.name = "Mark";
+	el2.category = "Grad";
+	el2.data = "CS";
+	el2.timeDate = asctime(curtime);
+	el2.child.push_back("Mandar");
+
+	std::cout &lt;&lt; "-------Testing save function-----";
+	db.save(el1.name, el1);
+	db.save(el2.name, el2);
+	std::cout &lt;&lt; "\n --------------Testing show function----------\n";
+	std::cout &lt;&lt; el1.show() &lt;&lt; std::endl;
+	std::cout &lt;&lt; el2.show() &lt;&lt; std::endl;
+	std::cout &lt;&lt; "-------------------Testing keys function--------\n";
+	for (unsigned int i = 0; i &lt; db.keys().size(); ++i) <br> <button onclick = "hidebutton('406526')">+</button> { <Span id="406526"  > 
+
+		std::cout &lt;&lt; db.keys().at(i);
+	<br></Span>} 
+	std::cout &lt;&lt; "---------------Testing Delete Function------";
+	db.del("Mark");
+	std::cout &lt;&lt; "\n ----------------------Testing Update Function---------";
+	db.update("Mandar", el1);
+	std::cout &lt;&lt; "-------------------Testing value function----------------";
+	db.value("Mandar").show();
+	std::cout &lt;&lt; "----------------Testing updatemeta function--------------";
+	db.updatemeta("Mandar", "undergrad", "EE", <br> <button onclick = "hidebutton('406956')">+</button> { <Span id="406956"  >  "john,jane" <br></Span>} );
+	std::cout &lt;&lt; "-------Testing database to XMl function--------";
+	//This function shows Xml peristence. the fromxml and to xml functions are both linked in this function
+	db.databasetoXml(db);
+<br></Span>} 
+
+#endif
+</pre> 
+</body>
+ </html>

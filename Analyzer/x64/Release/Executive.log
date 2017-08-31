@@ -1,0 +1,22 @@
+﻿  AbstrSynTree.cpp
+  dependencytable.cpp
+  FileMgr.cpp
+  FileSystem.cpp
+  GrammarHelpers.cpp
+  Logger.cpp
+  ActionsAndRules.cpp
+  ConfigureParser.cpp
+  Parser.cpp
+  ScopeStack.cpp
+  SemiExp.cpp
+  Tokenizer.cpp
+  Utilities.cpp
+  DepAnal.cpp
+  Executive.cpp
+  XmlDocument.cpp
+  XmlElement.cpp
+  Generating code
+  All 5689 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Executive.vcxproj -> D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\x64\Release\CodeAnalyzer.exe
+  Executive.vcxproj -> D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\x64\Release\CodeAnalyzer.pdb (Full PDB)

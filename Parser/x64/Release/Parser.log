@@ -1,0 +1,12 @@
+﻿  AbstrSynTree.cpp
+  FileSystem.cpp
+  GrammarHelpers.cpp
+  Logger.cpp
+  ScopeStack.cpp
+  SemiExp.cpp
+  Tokenizer.cpp
+  Utilities.cpp
+  ActionsAndRules.cpp
+  ConfigureParser.cpp
+  Parser.cpp
+  Parser.vcxproj -> D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\x64\Release\Parser.lib

@@ -1,0 +1,131 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> dependencytable.cpp</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\CodePublisher.h.htm"><label>CodePublisher.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\NoSqlDb.h.htm"><label>NoSqlDb.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\Persist.h.htm"><label>Persist.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\dependencytable.h.htm"><label>dependencytable.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\typetable.h.htm"><label>typetable.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////
+// dependencytable.cpp - dependency analysis and database creation	//
+//  Mandar Mathure, CSE687 - Object Oriented Design, Spring 2017  //
+//																   //
+//  Language:      Visual C++ 2015		                           //
+//  Platform:      Lenovo y700, Windows 10						   //
+//  Application:   TypeBased-Dependency Analyzer CSE687 Pr2, Mar-7 //
+//  Author:        Mandar Mathure, CST 4-187, Syracuse University  //
+//                 (315) 949-8682, mmathure@syr.edu                //
+//																	//
+/////////////////////////////////////////////////////////////////////
+#include "../CodePublisher/CodePublisher.h"
+#include "dependencytable.h"
+dependencytable::dependencytable() :
+	ASTref_(Repository::getInstance()-&gt;AST())
+
+<br> <button onclick = "hidebutton('426223')">+</button> { <Span id="426223"  > 
+<br></Span>} 
+
+//making database from project 1
+int dependencytable::makedatabase(std::string filespec) <br> <button onclick = "hidebutton('426313')">+</button> { <Span id="426313"  > 
+	if (filespec != "") <br> <button onclick = "hidebutton('426335')">+</button> { <Span id="426335"  > 
+		std::cout &lt;&lt; "\n" &lt;&lt; DB.value(filespec).show();
+	<br></Span>} 
+
+	return 0;
+<br></Span>} 
+
+//database contents to XML string
+ int dependencytable::makexml(std::string xml) <br> <button onclick = "hidebutton('426478')">+</button> { <Span id="426478"  > 
+	std::ofstream myfile;
+
+	myfile.open(xml);
+
+	std::cout &lt;&lt; "\n==========================================================SAVING DATABASE CONTENTS IN XML FORMAT TO A SPECIFIED FILE(default : projectdirectory/x64/release/Project2.txt) REQUIREMENT #7===============================\n";
+	X x;
+	myfile &lt;&lt; x.makexml(DB);
+	myfile.close();
+
+	return 0;
+<br></Span>} 
+
+ //starting dependency analysis on a set of files 
+ NoSqlDb&lt;StrData&gt; dependencytable::makedeptable(typetable& x, std::string filespec, std::string xmlname) <br> <button onclick = "hidebutton('426967')">+</button> { <Span id="426967"  > 
+	if (filespec != "") <br> <button onclick = "hidebutton('426989')">+</button> { <Span id="426989"  > 
+		static std::string path = "";
+		try <br> <button onclick = "hidebutton('427027')">+</button> { <Span id="427027"  > 
+			std::ifstream in(filespec);
+			if (!in.good())
+			<br> <button onclick = "hidebutton('427079')">+</button> { <Span id="427079"  > 
+				std::cout &lt;&lt; "cant open";
+				return DB;
+			<br></Span>} else
+			<br> <button onclick = "hidebutton('427134')">+</button> { <Span id="427134"  > 	Toker toker;
+				toker.returnComments();	toker.attach(&in);
+				mytableentry my = x.getterx();std::set&lt;std::string&gt; tempvector;
+				do
+				<br> <button onclick = "hidebutton('427271')">+</button> { <Span id="427271"  > 
+					std::string tok = toker.getTok();
+					for (auto tt : my) <br> <button onclick = "hidebutton('427334')">+</button> { <Span id="427334"  > 
+						if (tok == tt.first) <br> <button onclick = "hidebutton('427362')">+</button> { <Span id="427362"  > 
+							tempvector.insert(tt.second.second);
+						<br></Span>} 
+					<br></Span>} 
+				<br></Span>}  while (in.good());
+				elementadd.name = filespec;
+				while (!elementadd.child.empty())
+				<br> <button onclick = "hidebutton('427515')">+</button> { <Span id="427515"  > 
+					elementadd.child.pop_back();
+				<br></Span>} 
+				for (auto iter = tempvector.begin(); iter != tempvector.end(); ++iter) <br> <button onclick = "hidebutton('427629')">+</button> { <Span id="427629"  > 
+					elementadd.child.push_back(*iter);
+				<br></Span>} 
+				DB.save(elementadd.name, elementadd);
+				deptableentry_.insert(std::make_pair(filespec, tempvector));
+			<br></Span>} 
+			
+			CodePublisher cp;
+			cp.CreateHTMLFiles(deptableentry_,xmlname);
+			
+			
+			std::cout &lt;&lt; std::endl;
+			std::cout &lt;&lt; std::setw(60) &lt;&lt; std::left &lt;&lt; filespec&lt;&lt;"\t\tDEPENDS ON =&gt;";
+			for (auto set_it = deptableentry_[filespec].begin(); set_it != deptableentry_[filespec].end(); ++set_it) <br> <button onclick = "hidebutton('428068')">+</button> { <Span id="428068"  > 
+				std::cout &lt;&lt; std::endl;
+				std::cout &lt;&lt;std::setw(100)&lt;&lt;" "&lt;&lt; *set_it &lt;&lt; "\n";
+			<br></Span>} 
+		<br></Span>}  catch (std::logic_error& ex)
+		<br> <button onclick = "hidebutton('428188')">+</button> { <Span id="428188"  > 
+			std::cout &lt;&lt; "\n  " &lt;&lt; ex.what();
+		<br></Span>} 
+		std::cout &lt;&lt; "\n\n";
+	<br></Span>} 
+	return DB;
+<br></Span>} 
+
+
+#ifdef DEPENDENCYTABLE_TEST
+
+
+ int main() <br> <button onclick = "hidebutton('428303')">+</button> { <Span id="428303"  > 
+
+
+	 d.makexml("filename.txt");
+	 //other interface are not included in this test stub because they are dependent on multiple files to suppy the arguments 
+	 //just like DepAnal.cpp
+	 
+	 
+	 //testing tependency table;
+
+
+ <br></Span>} 
+
+
+
+
+
+
+
+#endif 
+
+</pre> 
+</body>
+ </html>

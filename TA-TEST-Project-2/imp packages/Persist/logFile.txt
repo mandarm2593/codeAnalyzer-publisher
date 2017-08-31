@@ -1,0 +1,71 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Sun Mar 12 18:59:51 2017
+     Path: "C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep - Copy\Persist"
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      37
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 Persist.h       class                                  X      44       8       4
+              public data: std :: string makexml ( NoSqlDb < std :: string > db ) ; 
+                 Persist.h    function                            makexml      54      35       3
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+               Persist.cpp    function                               main      21       7       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+             XmlDocument.h   namespace                      XmlProcessing      69      23       3
+             XmlDocument.h       class                        XmlDocument      71      20       2
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+              XmlElement.h   namespace                      XmlProcessing      83     157      28
+              XmlElement.h       class                 AbstractXmlElement      88      13       6
+              XmlElement.h    function                           addChild     101       2       1
+              XmlElement.h    function                        removeChild     102       2       1
+              XmlElement.h    function                          addAttrib     103       2       1
+              XmlElement.h    function                       removeAttrib     104       2       1
+              XmlElement.h    function                ~AbstractXmlElement     105       2       1
+              XmlElement.h       class                         DocElement     112      14       2
+              XmlElement.h    function                        ~DocElement     114       2       1
+              XmlElement.h       class                        TextElement     133      11       4
+              XmlElement.h    function                        TextElement     134       2       1
+              XmlElement.h    function                       ~TextElement     135       2       1
+              XmlElement.h    function                              value     144       2       1
+              XmlElement.h       class                      TaggedElement     153      18       3
+              XmlElement.h    function                      TaggedElement     154       1       1
+              XmlElement.h    function                     ~TaggedElement     156       2       1
+              XmlElement.h       class                     CommentElement     180      11       5
+              XmlElement.h    function                     CommentElement     181       2       1
+              XmlElement.h    function                    ~CommentElement     183       2       1
+              XmlElement.h    function                              value     185       2       1
+              XmlElement.h    function                           toString     186       2       1
+              XmlElement.h       class                   ProcInstrElement     200      14       4
+              XmlElement.h    function                   ProcInstrElement     202       2       1
+              XmlElement.h    function                              value     206       2       1
+              XmlElement.h    function                           toString     207       2       1
+              XmlElement.h       class                   XmlDeclarElement     221      13       3
+              XmlElement.h    function                   XmlDeclarElement     223       2       1
+              XmlElement.h    function                              value     227       2       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: Persist.h : 48 - class X
+                std :: string makexml ( NoSqlDb < std :: string > db ) ; 
+
+
+    searched     8 dirs
+   processed     4 files

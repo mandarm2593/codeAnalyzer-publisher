@@ -1,0 +1,160 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> CodePublisher.h</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\CodePublisher.h.htm"><label>CodePublisher.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+#pragma once
+
+/////////////////////////////////////////////////////////////////////
+// CodePublisher.h - Publish source code files 		               //
+//  Mandar Mathure, CSE687 - Object Oriented Design, Spring 2017   //
+//																   //
+//  Language:      Visual C++ 2015		                           //
+//  Platform:      Lenovo y700, Windows 10						   //
+//  Application:   Dependency Analyzer CSE687 Pr3, Mar-7           //
+//  Author:        Mandar Mathure, CST 4-187, Syracuse University  //
+//                 (315) 949-8682, mmathure@syr.edu                //
+//	source : Jim Fawcett, Syracuse University, CST 4-187           //
+//              jfawcett@twcny.rr.com   							//
+/////////////////////////////////////////////////////////////////////
+/*
+* - Package operation
+this package is an added functionality to the code analyzer project. it includes functions to publish the analysed files as html web pages 
+by linking a css style file and a java script file for show/hide buttons.
+Public Interface:
+=================
+createHTMLfiles() --creates HTML files based on the dependency table
+createHTMlcontent()--HTML content generator and parser
+openMainpage()--open default index page in system browser. 
+
+
+* - Build Process:
+Required files
+-dependencytable.h
+Build commands
+This is a static library builds with code analyzer
+- devenv CodeAnalyzerEx.sln
+
+* - Maintenance information
+ver 1.0 : 2 April 2017
+-	first release
+*/
+
+
+#include&lt;iostream&gt;
+#include "../deptable/dependencytable.h"
+#include &lt;set&gt;
+
+class CodePublisher
+<br> <button onclick = "hidebutton('398475')">+</button> { <Span id="398475"  > 
+	std::string cssloc = "../../styling.css";
+	std::string jssloc = "../../jshidebutton.js";
+	std::string content;
+	std::string lt = "&lt;";
+	std::string gt = "&gt;";
+	std::string openbrac = "<br> <button onclick = "hidebutton('398654')">+</button> { <Span id="398654"  > ";
+	std::string closebrac = "<br></Span>} ";
+	std::string HTML_endTags = "&lt;/pre&gt; \n&lt;/body&gt;\n &lt;/html&gt;";
+	std::string mystring;
+public:
+	void CreateHTMLFiles(std::unordered_map&lt;std::string, std::set&lt;std::string&gt;&gt; deptable,std::string x);
+	void openMainpage(std::string name);
+	std::string createHTMLcontent(std::string content);
+
+<br></Span>} ;
+
+inline void CodePublisher::CreateHTMLFiles(std::unordered_map&lt;std::string, std::set&lt;std::string&gt;&gt; deptable,std::string x) <br> <button onclick = "hidebutton('399086')">+</button> { <Span id="399086"  > 
+	std::ofstream homepage;
+	std::string mainpage;
+	if ((x == "") || (x == "*.cpp") || (x == ".*h") || (x == "/m") || (x == "/s") || (x == "/a") || (x == "/r") || (x == "/d") || (x == "/b") || (x == "/f")) 
+	mainpage = "../../Mainpage.htm";	
+	else mainpage = "../../" + x + ".htm";	
+	mainpage = FileSystem::Path::getFullFileSpec(mainpage);
+	homepage.open(mainpage);	
+	std::string deploc="../../TA-TEST-Project-2/.htm files/";
+	deploc = FileSystem::Path::getFullFileSpec(deploc);
+	cssloc = FileSystem::Path::getFullFileSpec(cssloc);
+	jssloc = FileSystem::Path::getFullFileSpec(jssloc);
+	homepage &lt;&lt; "&lt;html&gt;&lt;head&gt;&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssloc + "\"&gt;" + "\n";
+	homepage &lt;&lt; "&lt;h3&gt; Index Page&lt;/h3&gt;\n &lt;p style=\"font-size:11\"&gt; The name of this page can be given as the last command line argument&lt;br&gt;default name is Mainpage.htm if no argument is given&lt;br&gt;All the HTML files are generated in (projectdirectory)/TA-TEST-Project-2/.htm files/&lt;p&gt;";
+	homepage &lt;&lt; "\n &lt;a href =\"" + cssloc + "\"&gt;&lt;label&gt;styling.css&lt;/label&gt;&lt;/a&gt;,&lt;a href = \"" +jssloc + "\"&gt;&lt;label&gt;jshidebutton.js&lt;/label&gt; &lt;/a&gt;&lt;/head&gt;&lt;body&gt;&lt;br&gt;&lt;br&gt; List of files : &lt;pre&gt;&lt;br&gt;";
+	std::string HTMLtags = "&lt;html&gt;&lt;head&gt;&lt;script src=\""+jssloc+"\"&gt;&lt;/script&gt;&lt;link rel=\"stylesheet\" type=\"text/css\" href=\""+cssloc+"\"&gt;"+"\n &lt;/head&gt;  \n &lt;body&gt; \n &lt;pre&gt;\n";	
+	for (auto it = deptable.begin(); it != deptable.end(); ++it) <br> <button onclick = "hidebutton('400465')">+</button> { <Span id="400465"  > 
+		std::string mycontent = "";
+		std::vector&lt;std::string&gt; str;
+		for (auto set_it = it-&gt;second.begin(); set_it != it-&gt;second.end(); ++set_it) <br> <button onclick = "hidebutton('400605')">+</button> { <Span id="400605"  > 
+			 mystring = *set_it;
+			size_t posi = mystring.find_last_of("\\");
+			mystring = mystring.substr(posi + 1, std::string::npos-1);			
+			str.push_back("&lt;a href =\""+deploc+mystring+".htm\"&gt;"+"&lt;label&gt;"+mystring+"&lt;/label&gt;&lt;/a&gt;");
+		<br></Span>} 				
+		size_t pos = it-&gt;first.find_last_of("\\");
+		std::string name = it-&gt;first.substr(pos + 1, std::string::npos);
+		std::string loc = "../../TA-TEST-Project-2/.htm files/" + name + ".htm";
+		loc = FileSystem::Path::getFullFileSpec(loc);
+		std::ofstream myfile1(loc);
+		myfile1 &lt;&lt; HTMLtags;
+		myfile1 &lt;&lt; "&lt;h3&gt; " + name + "&lt;/h3&gt;";
+		myfile1 &lt;&lt; "&lt;h4&gt;Dependencies:&lt;/h4&gt;";
+		for (std::string a : str) <br> <button onclick = "hidebutton('401223')">+</button> { <Span id="401223"  > 
+			myfile1 &lt;&lt; a&lt;&lt;" ";
+		<br></Span>} 
+		myfile1 &lt;&lt; "\n ----------------------------------------------------------------------------------------------------\n\n";
+		std::ifstream myfile(it-&gt;first);
+		while (!myfile.eof())
+		<br> <button onclick = "hidebutton('401430')">+</button> { <Span id="401430"  > 
+			getline(myfile, content);			
+			mycontent.append(createHTMLcontent(content));
+			mycontent.append("\n");				
+		<br></Span>} 
+		myfile1 &lt;&lt; mycontent;
+		myfile1 &lt;&lt; HTML_endTags;				
+		homepage &lt;&lt; " &lt;a href =\"" + loc + "\"&gt;" +"&lt;label&gt;"+ name+"&lt;/label&gt;" + "&lt;/a&gt;&lt;br&gt;";				
+	<br></Span>} 	
+	homepage.close();	
+	<br></Span>} 
+
+
+	inline void CodePublisher::openMainpage(std::string name) <br> <button onclick = "hidebutton('401767')">+</button> { <Span id="401767"  > 
+		std::string dest;
+		if ((name == "") || (name == "*.cpp") || (name == ".*h") || (name == "/m") || (name == "/s") || (name == "/a") || (name == "/r") || (name == "/d") || (name == "/b") || (name == "/f")) <br> <button onclick = "hidebutton('401973')">+</button> { <Span id="401973"  > 
+
+			dest= "../../Mainpage.htm";
+		<br></Span>} 
+		else
+		<br> <button onclick = "hidebutton('402015')">+</button> { <Span id="402015"  > 
+			dest = "../../" + name + ".htm";
+		<br></Span>} 		
+		std::string command("start \"\" \"" + dest + "\"");
+		std::system(command.c_str());
+	<br></Span>} 
+
+
+	inline std::string CodePublisher::createHTMLcontent(std::string content) <br> <button onclick = "hidebutton('402216')">+</button> { <Span id="402216"  > 
+		static size_t m = 0;
+
+		std::string temp = "";
+		for (int i = 0; i&lt; content.length(); ++i) <br> <button onclick = "hidebutton('402307')">+</button> { <Span id="402307"  > 
+			if (content[i] == '&lt;')
+				temp = temp + "&lt;";
+			else if (content[i] == '&gt;')
+				temp = temp + "&gt;";
+			else if (content[i] == '<br> <button onclick = "hidebutton('402440')">+</button> { <Span id="402440"  > ') <br> <button onclick = "hidebutton('402444')">+</button> { <Span id="402444"  > 
+				temp = temp + "&lt;br&gt; &lt;button onclick = \"hidebutton('" + std::to_string(m) + "')\"&gt;+&lt;/button&gt; <br> <button onclick = "hidebutton('402542')">+</button> { <Span id="402542"  >  &lt;Span id=\"" + std::to_string(m) + "\"  &gt; ";
+			<br></Span>} 
+			else if (content[i] == '<br></Span>} ') <br> <button onclick = "hidebutton('402623')">+</button> { <Span id="402623"  > 
+				temp = temp + "&lt;br&gt;&lt;/Span&gt;<br></Span>}  ";
+			<br></Span>} 
+			else temp = temp + content[i];
+			m++;
+		<br></Span>} 
+
+		return temp;
+
+
+	<br></Span>} 
+</pre> 
+</body>
+ </html>

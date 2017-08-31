@@ -1,0 +1,76 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> Persist.cpp</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\NoSqlDb.h.htm"><label>NoSqlDb.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\Persist.h.htm"><label>Persist.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\XmlElement.h.htm"><label>XmlElement.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+/////////////////////////////////////////////////////////////////////
+// Persist.h - persisting data in xml format						//
+//  Mandar Mathure, CSE687 - Object Oriented Design, Spring 2017	//
+//																   //
+//  Language:      Visual C++ 2015		                           //
+//  Platform:      Lenovo y700, Windows 10						   //
+//  Application:   Dependency Analyzer CSE687 Pr2, Mar-7           //
+//  Author:        Mandar Mathure, CST 4-187, Syracuse University  //
+//                 (315) 949-8682, mmathure@syr.edu                //
+//																	//
+/////////////////////////////////////////////////////////////////////
+
+#include "Persist.h"
+std::string X::makexml(NoSqlDb&lt;StrData&gt; db) <br> <button onclick = "hidebutton('415246')">+</button> { <Span id="415246"  > 
+
+
+	using sPtr = std::shared_ptr &lt; AbstractXmlElement &gt;;
+
+	sPtr root = makeTaggedElement("Dependency Table");
+
+	for (unsigned int i = 0; i &lt; db.keys().size(); ++i)
+	<br> <button onclick = "hidebutton('415404')">+</button> { <Span id="415404"  > 
+
+		sPtr pKeyElem = makeTaggedElement("File Name");
+		root-&gt;addChild(pKeyElem);
+		sPtr pkElem = makeTextElement(db.keys().at(i));
+		pKeyElem-&gt;addChild(pkElem);
+
+
+		sPtr pChildren = makeTaggedElement("Dependencies");
+		root-&gt;addChild(pChildren);
+
+
+		for (unsigned int m = 0; m &lt; db.value(db.keys().at(i)).child.size(); ++m)
+		<br> <button onclick = "hidebutton('415717')">+</button> { <Span id="415717"  > 
+			sPtr pchild = makeTextElement(db.value(db.keys().at(i)).child.at(m));
+			pChildren-&gt;addChild(pchild);
+		<br></Span>} 
+
+
+<br></Span>} 
+
+
+	sPtr docEl = makeDocElement(root);
+	std::cout &lt;&lt; "  " &lt;&lt; docEl-&gt;toString();
+	std::cout &lt;&lt; "\n\n";
+	return docEl-&gt;toString();
+<br></Span>} 
+
+
+
+
+#ifdef PERSIST_TEST
+
+/*-------------------------------------------------------test stub for persist package--------------------------------------------------------------------------*/
+
+int main() <br> <button onclick = "hidebutton('416140')">+</button> { <Span id="416140"  > 
+
+	
+
+
+<br></Span>} 
+
+
+#endif // PERSIST_TEST
+
+</pre> 
+</body>
+ </html>

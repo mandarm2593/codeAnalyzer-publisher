@@ -1,0 +1,184 @@
+<html><head><script src="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\jshidebutton.js"></script><link rel="stylesheet" type="text/css" href="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\styling.css">
+ </head>  
+ <body> 
+ <pre>
+<h3> StrComp.h</h3><h4>Dependencies:</h4><a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\NoSqlDb.h.htm"><label>NoSqlDb.h</label></a> <a href ="D:\imp\OOD\Projects\p2dep - Copy\p2dep - Copy\TA-TEST-Project-2\.htm files\StrComp.h.htm"><label>StrComp.h</label></a> 
+ ----------------------------------------------------------------------------------------------------
+
+#pragma once
+/////////////////////////////////////////////////////////////////////
+// StrComp.h - directed graph using tarzan's algorithm//
+//  Mandar Mathure, CSE687 - Object Oriented Design, Spring 2017	   //
+//																   //
+//  Language:      Visual C++ 2015		                           //
+//  Platform:      Lenovo y700, Windows 10						   //
+//  Application:   Dependency Analyzer CSE687 Pr2, Mar-7           //
+//  Author:        Mandar Mathure, CST 4-187, Syracuse University  //
+//                 (315) 949-8682, mmathure@syr.edu                //
+//	referred from www.geeksforgeeks.com								//
+/////////////////////////////////////////////////////////////////////
+/*
+* - Manual Information
+This package creates the strong component graph using tarzan's algorithm.
+
+Public Interface:
+=================
+void addEdge(int v, int w);																		// function to add an edge to graph
+void setGraphSize(int a);																		// to set the graph size
+void setFileGraphPath(std::unordered_map&lt;int, std::string&gt; setVal) <br> <button onclick = "hidebutton('421749')">+</button> { <Span id="421749"  > get_MapVal=setVal;<br></Span>} 			//to get the files from key
+void SCC();																						// prints strongly connected components
+
+
+* - Build Process:
+Required files
+- StrComp.h,StrComp.cpp
+Build commands
+This is a static library builds with code analyzer
+- devenv CodeAnalyzerEx.sln
+
+* - Maintenance information
+ver 1.0 : 11 Mar 2017
+-	first release
+*/
+
+#include &lt;string&gt;
+#include&lt;iostream&gt;
+#include &lt;list&gt;
+#include &lt;stack&gt;
+#include &lt;algorithm&gt;
+#include "../NoSqlDb/NoSqlDb.h"
+#include&lt;unordered_map&gt;
+#define NIL -1
+using namespace std;
+using Key = std::string;
+using StrData = std::string;
+using Keys = std::vector&lt;std::string&gt;;
+// A class that represents an directed graph
+namespace strong
+<br> <button onclick = "hidebutton('422406')">+</button> { <Span id="422406"  > 
+	class Graph
+	<br> <button onclick = "hidebutton('422420')">+</button> { <Span id="422420"  > 
+		int V;    // No. of vertices
+		list&lt;int&gt; *adj;    // A dynamic array of adjacency lists
+		std::unordered_map&lt;int, std::string&gt; get_MapVal;
+		// A Recursive DFS based function used by SCC()
+		void SCCUtil(int u, int disc[], int low[],
+			stack&lt;int&gt; *st, bool stackMember[]);
+		NoSqlDb&lt;StrData&gt; dbStrong;
+		
+	public:
+		Graph();   // Constructor
+		void addEdge(int v, int w);   // function to add an edge to graph
+		void setgraphsize(int a);
+		void setFileGraphPath(std::unordered_map&lt;int, std::string&gt; setVal) <br> <button onclick = "hidebutton('422919')">+</button> { <Span id="422919"  >  get_MapVal = setVal; <br></Span>} 
+		void displayStrongComponentDB();
+		void SCC();    // prints strongly connected components
+		
+
+	<br></Span>} ;
+
+	inline Graph::Graph()
+	<br> <button onclick = "hidebutton('423061')">+</button> { <Span id="423061"  > 
+	<br></Span>} 
+
+	inline void Graph::addEdge(int v, int w)
+	<br> <button onclick = "hidebutton('423106')">+</button> { <Span id="423106"  > 
+		adj[v].push_back(w);
+	<br></Span>} 
+
+	inline void Graph::setgraphsize(int a)
+	<br> <button onclick = "hidebutton('423171')">+</button> { <Span id="423171"  > 
+		this-&gt;V = a;
+		adj = new list&lt;int&gt;[a];
+	<br></Span>} 
+
+	// A recursive function that finds and prints strongly connected
+	// components using DFS traversal
+	inline void Graph::SCCUtil(int u, int disc[], int low[], stack&lt;int&gt; *st,
+		bool stackMember[])
+	<br> <button onclick = "hidebutton('423407')">+</button> { <Span id="423407"  > 
+		static int time = 0;
+		// Initialize discovery time and low value
+		disc[u] = low[u] = ++time;
+		st-&gt;push(u);
+		stackMember[u] = true;
+
+		// Go through all vertices adjacent to this
+		list &lt;string&gt; strongComponents;
+		list&lt;int&gt;::iterator i;
+		for (i = adj[u].begin(); i != adj[u].end(); ++i)
+		<br> <button onclick = "hidebutton('423694')">+</button> { <Span id="423694"  > 
+			int v = *i;  // v is current adjacent of 'u'
+						 // If v is not visited yet, then recur for it
+			if (disc[v] == -1)
+			<br> <button onclick = "hidebutton('423818')">+</button> { <Span id="423818"  > 
+				SCCUtil(v, disc, low, st, stackMember);
+				low[u] = min(low[u], low[v]);
+			<br></Span>} 
+			else if (stackMember[v] == true)
+				low[u] = min(low[u], disc[v]);
+		<br></Span>} 
+		int w = 0;  // To store stack extracted vertices
+		if (low[u] == disc[u])
+		<br> <button onclick = "hidebutton('424047')">+</button> { <Span id="424047"  > 
+			while (st-&gt;top() != u)
+			<br> <button onclick = "hidebutton('424076')">+</button> { <Span id="424076"  > 
+				w = (int)st-&gt;top();
+				std::cout &lt;&lt; get_MapVal[w] &lt;&lt; "  ";
+				stackMember[w] = false;
+				st-&gt;pop();
+			<br></Span>} 
+			w = (int)st-&gt;top();
+			std::cout &lt;&lt; get_MapVal[w] &lt;&lt; "  " &lt;&lt; "\n";
+			stackMember[w] = false;
+			st-&gt;pop();
+		<br></Span>} 
+	<br></Span>} 
+
+	inline void Graph::displayStrongComponentDB()
+	<br> <button onclick = "hidebutton('424343')">+</button> { <Span id="424343"  > 
+
+		std::string name;
+		Element&lt;std::string&gt; elem;
+		std::cout &lt;&lt; "-------------------- Displaying Strong Componenents in NoSql Database -------------------------- \n";
+		for (auto it : get_MapVal) <br> <button onclick = "hidebutton('424537')">+</button> { <Span id="424537"  > 
+			name = "Strong Component";
+			elem.name = name;
+			elem.child.push_back(it.second + "\n");
+		<br></Span>} 
+		dbStrong.save(elem.name, elem);
+		Keys keys = dbStrong.keys();
+		for (Key itm : keys) <br> <button onclick = "hidebutton('424718')">+</button> { <Span id="424718"  > 
+			std::cout &lt;&lt; " " &lt;&lt; itm;
+			std::cout &lt;&lt; " " &lt;&lt; dbStrong.value(itm).show();
+		<br></Span>} 
+		std::cout &lt;&lt; "-------------------- Persisting Strong Componenents of NoSql Database in Xml File -------------------------- \n";
+		
+	<br></Span>} 
+
+	inline void Graph::SCC()
+	<br> <button onclick = "hidebutton('424958')">+</button> { <Span id="424958"  > 
+		int *disc = new int[V];
+		int *low = new int[V];
+		bool *stackMember = new bool[V];
+		stack&lt;int&gt; *st = new stack&lt;int&gt;();
+
+		// Initialize disc and low, and stackMember arrays
+		for (int i = 0; i &lt; V; i++)
+		<br> <button onclick = "hidebutton('425161')">+</button> { <Span id="425161"  > 
+			disc[i] = NIL;
+			low[i] = NIL;
+			stackMember[i] = false;
+		<br></Span>} 
+
+		// Call the recursive helper function to find strongly
+		// connected components in DFS tree with vertex 'i'
+		for (int i = 0; i &lt; V; i++)
+			if (disc[i] == NIL)
+				SCCUtil(i, disc, low, st, stackMember);
+	<br></Span>} 
+
+<br></Span>} 
+</pre> 
+</body>
+ </html>

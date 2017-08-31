@@ -1,0 +1,147 @@
+
+                                      CodeAnalysis - Version 1.4
+    ==============================================================================================
+     Sun Mar 12 19:00:34 2017
+     Path: "C:\Users\Mandar\Documents\Visual Studio 2015\Projects\p2dep - Copy\XmlDocument"
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1     117
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                 NoSqlDb.h       class                            Element      33      18       5
+              public data: Property < Name > name ; 
+              public data: Property < Category > category ; 
+              public data: Property < TimeDate > timeDate ; 
+              public data: Property < Data > data ; 
+              public data: std :: vector < Children > child ; 
+                 NoSqlDb.h    function                               show      55      21       2
+                 NoSqlDb.h    function                               save     118       6       1
+                 NoSqlDb.h    function                             update     137       8       1
+                 NoSqlDb.h       class                            NoSqlDb      83      19       7
+                 NoSqlDb.h    function                               keys     105      10       2
+                 NoSqlDb.h    function                                del     127       5       1
+                 NoSqlDb.h    function                              value     148       5       1
+                 NoSqlDb.h    function                              count     155       3       1
+                 NoSqlDb.h    function                           addChild     171       6       1
+                 NoSqlDb.h    function                         updatemeta     161       6       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+               NoSqlDb.cpp    function                               main      28      42       3
+               NoSqlDb.cpp    function                         updatemeta      64       1       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+             XmlDocument.h   namespace                      XmlProcessing      69      23       3
+             XmlDocument.h       class                        XmlDocument      71      20       2
+             XmlDocument.h   namespace                      XmlProcessing      69      23       5
+             XmlDocument.h       class                        XmlDocument      71      20       4
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+           XmlDocument.cpp    function                        XmlDocument      17       3       1
+           XmlDocument.cpp    function                        XmlDocument      16       3       1
+           XmlDocument.cpp    function                               main      25      10       1
+           XmlDocument.cpp    function                               main      24      10       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+              XmlElement.h   namespace                      XmlProcessing      83     157      62
+              XmlElement.h       class                 AbstractXmlElement      88      13       6
+              XmlElement.h    function                           addChild     101       2       1
+              XmlElement.h    function                        removeChild     102       2       1
+              XmlElement.h    function                          addAttrib     103       2       1
+              XmlElement.h    function                       removeAttrib     104       2       1
+              XmlElement.h    function                ~AbstractXmlElement     105       2       1
+              XmlElement.h       class                         DocElement     112      14      12
+              XmlElement.h    function                        ~DocElement     114       2       1
+              XmlElement.h       class                        TextElement     133      11       5
+              XmlElement.h    function                        TextElement     134       2       1
+              XmlElement.h    function                       ~TextElement     135       2       1
+              XmlElement.h    function                              value     144       2       1
+              XmlElement.h       class                      TaggedElement     153      18      16
+              XmlElement.h    function                      TaggedElement     154       1       1
+              XmlElement.h    function                     ~TaggedElement     156       2       1
+              XmlElement.h       class                     CommentElement     180      11       5
+              XmlElement.h    function                     CommentElement     181       2       1
+              XmlElement.h    function                    ~CommentElement     183       2       1
+              XmlElement.h    function                              value     185       2       1
+              XmlElement.h    function                           toString     186       2       1
+              XmlElement.h       class                   ProcInstrElement     200      14       8
+              XmlElement.h    function                   ProcInstrElement     202       2       1
+              XmlElement.h    function                              value     206       2       1
+              XmlElement.h    function                           toString     207       2       1
+              XmlElement.h       class                   XmlDeclarElement     221      13       9
+              XmlElement.h    function                   XmlDeclarElement     223       2       1
+              XmlElement.h    function                              value     227       2       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+            XmlElement.cpp    function                         DocElement      64       7       1
+            XmlElement.cpp    function                         hasXmlRoot      74       8       2
+            XmlElement.cpp    function                           addChild      85      27       3
+            XmlElement.cpp    function                        removeChild     115       9       2
+            XmlElement.cpp    function                              value     125       2       1
+            XmlElement.cpp    function                           toString     131       6       1
+            XmlElement.cpp    function                           toString     220       6       1
+            XmlElement.cpp    function                           addChild     140       4       1
+            XmlElement.cpp    function                        removeChild     147       9       2
+            XmlElement.cpp    function                        removeChild     159      11       3
+            XmlElement.cpp    function                          addAttrib     173       5       1
+            XmlElement.cpp    function                       removeAttrib     181      11       3
+            XmlElement.cpp    function                              value     193       2       1
+            XmlElement.cpp    function                           toString     199      18       2
+            XmlElement.cpp    function                          addAttrib     229       5       1
+            XmlElement.cpp    function                       removeAttrib     237      11       3
+            XmlElement.cpp    function                           toString     251      15       2
+            XmlElement.cpp    function                          addAttrib     269       5       1
+            XmlElement.cpp    function                       removeAttrib     277      11       3
+            XmlElement.cpp    function                     makeDocElement      21       4       1
+            XmlElement.cpp    function                  makeTaggedElement      29       4       1
+            XmlElement.cpp    function                    makeTextElement      36       4       1
+            XmlElement.cpp    function                 makeCommentElement      43       4       1
+            XmlElement.cpp    function               makeProcInstrElement      50       4       1
+            XmlElement.cpp    function               makeXmlDeclarElement      57       4       1
+            XmlElement.cpp    function                              title     291       4       1
+            XmlElement.cpp    function                               main     301      18       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         dependencytable.h       class                    dependencytable      53      45      19
+         dependencytable.h    function                            getter_      66       4       1
+         dependencytable.h    function                             setter      73       5       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+       dependencytable.cpp    function                    dependencytable      17       2       1
+       dependencytable.cpp    function                       makedatabase      21       7       2
+       dependencytable.cpp    function                            makexml      29      12       1
+       dependencytable.cpp    function                       makedeptable      43      48      12
+       dependencytable.cpp    function                               main      96      12       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+       dependencytable.cpp    function                       makedeptable      43      48      12
+
+              public data: NoSqlDb.h : 39 - class Element
+                Property < Name > name ; 
+              public data: NoSqlDb.h : 40 - class Element
+                Property < Category > category ; 
+              public data: NoSqlDb.h : 41 - class Element
+                Property < TimeDate > timeDate ; 
+              public data: NoSqlDb.h : 43 - class Element
+                Property < Data > data ; 
+              public data: NoSqlDb.h : 45 - class Element
+                std :: vector < Children > child ; 
+
+
+    searched    21 dirs
+   processed    10 files
