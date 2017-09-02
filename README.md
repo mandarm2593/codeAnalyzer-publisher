@@ -1,1 +1,6 @@
-# codeAnalyzer-publisher
+# codeAnalyzer-publisher (Two projects integrated into a single solution)
+
+codeAnalyzer-publisher is the second project in a series of projects implemented in Object Oriented Design class.
+This project performs Type-based dependency Analysis by extracting lexical content from source code files, analyzing the code's syntax and building a Type Table (TT) or an Abstract Syntax Tree (AST) that hold the results of our analysis. It is then fairly easy to build several backends that can do further analyses on the data held in TT or AST to construct code metrics, search for particular constructs, or some other interesting features of the code.
+Once the dependencies are established, we develop a means to display source code files as web pages with embedded child links. Each link refers to a code file that the displayed code file depends on. Each file to be published is a C++ source file. Our publisher will generate, for each of these, an HTML file, with most of the contents drawn from the code file.
+The pages we will generate have only static content, with the exception of some embedded JavaScript and styling.
